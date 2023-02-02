@@ -1,6 +1,7 @@
 <script>
     import Entry from "./Entry.svelte";
 
+
 	const executeDebugApiMethod = async (methodName) => {
 		const request = {
 			op: "execute_api_method",
@@ -12,19 +13,18 @@
 	}
 
 </script>
-
-<div class="sidebar">
+<div class="contentS-sidebar">
 	<Entry prettyName="Outer" methodName="drawFloorOuterShapes" event={executeDebugApiMethod} />
 	<Entry prettyName="Inner" methodName="drawFloorInnerShapes" event={executeDebugApiMethod} />
 </div>
 
 <style>
-	.sidebar {
-		background-color: aquamarine;
-		height: 100%;
-		width: 15%;
+	.contentS-sidebar {
+		background-color: brown;
+		height: 700px;
+		width: 400px;
 		position: fixed;
-		top: 0px;
+		top: 15%;
 		right: 0px;
 		z-index: 2147483647; /* the z-est index */
 	}
