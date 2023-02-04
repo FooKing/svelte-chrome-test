@@ -1,16 +1,19 @@
 <script>
-
+export let handleNavbarSidebarClose
 </script>
 
 
 <div class="tw-navbar bg-base-100">
 	<div class="tw-flex-none">
-		<button class="tw-btn tw-btn-square tw-btn-ghost">
-			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="tw-inline-block tw-w-5 tw-h-5 tw-stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+		<button class="tw-btn tw-btn-square tw-btn-ghost btnToggleSidebar" on:click={handleNavbarSidebarClose}>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="tw-w-6 tw-h-6">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
+			</svg>
+
 		</button>
 	</div>
 	<div class="tw-flex-1 tw-text-xl">
-		<h1>QA Toolkit</h1>
+		<h1 class="tw-header">QA Toolkit</h1>
 	</div>
 	<div class="tw-flex-none">
 		<button class="tw-btn tw-btn-square tw-btn-ghost">
@@ -29,8 +32,12 @@
 		user-select: none;
 	}
 
-	h1{
+	.tw-header{
 		font-weight: bold;
+		font-size: larger;
+	}
+	.btnToggleSidebar{
+
 	}
 
 </style>
