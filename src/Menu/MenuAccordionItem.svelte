@@ -7,7 +7,7 @@
 <!--Start HTML-->
 <div class="tw-collapse tw-collapse-arrow">
 	<input type="checkbox" class="peer" />
-	<div class="tw-collapse-title  peer-checked:bg-secondary peer-checked:text-secondary-content">
+	<div class="tw-collapse-title">
 		{menuTitle}
 	</div>
 	<div class="tw-collapse-content tw-text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
@@ -17,18 +17,17 @@
 
 <!--Start Style-->
 <style>
-	.tw-collapse
-	{
+	.tw-collapse-title{
+		border-top: hsl(var(--b2)) solid 2px;
 		border-bottom: hsl(var(--b2)) solid 2px;
-		color: hsl(var(--pc));
 		font-size: large;
 		font-weight: bold;
+		color: hsl(var(--bc));
 	}
-	.tw-collapse:hover{
-		border-bottom: hsl(var(--a)) solid 2px;
+	.tw-collapse-content{
+		margin-top:4px;
+		color: hsl(var(--bc));
 	}
-	.tw-collapse:active{
-		border-bottom: hsl(var(--a)) solid 2px;
-	}
+
 
 </style>

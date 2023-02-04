@@ -4,6 +4,7 @@
     import MenuAccordionItem from "./Menu/MenuAccordionItem.svelte";
     import JsonMenuComp from "./Menu/2DJsonTools/JsonMenuComp.svelte";
 
+		let theme = "light";
 
 	// const executeDebugApiMethod = async (methodName) => {
 	// 	const request = {
@@ -14,9 +15,9 @@
 	//
 	// 	const response = await chrome.runtime.sendMessage(request);
 	// }
-let theme = "cupcake";
+
 </script>
-<html data-theme={theme}>
+<html lang="en" data-theme={theme}>
 	<div class="tw-content-sidebar">
 		<MenuNavbar/>
 		<MenuAccordionItem menuTitle="Bolt"/>

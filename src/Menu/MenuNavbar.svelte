@@ -25,7 +25,7 @@
 
 <style>
 	.tw-navbar{
-		color: hsl(var(--pc));
+		color: hsl(var(--bc));
 		user-select: none;
 	}
 
