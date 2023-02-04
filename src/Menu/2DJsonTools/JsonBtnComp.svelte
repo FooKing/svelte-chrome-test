@@ -1,13 +1,12 @@
 <script>
-	import TailwindStyle from "./TailwindStyle.svelte";
     export let event;
     export let methodName;
-    export let prettyName;
+    export let titleName;
 </script>
 
 <div class="tw-entry">
     <button class="tw-btn tw-btn-primary" on:click={() => event(methodName)}>
-        {prettyName}
+        {titleName}
     </button>
 </div>
 
