@@ -6,7 +6,7 @@
     import JsonMenuComp from "./Menu/2DJsonTools/JsonMenuComp.svelte";
 		import MenuToggleButton from "./Menu/MenuToggleButton.svelte";
 
-		// Set theme for DaisyUI here, this can be changed at runtime, future allow change in options.
+		// Set theme for DaisyUI here, this can be changed at runtime, TODO - Changeable from options.
 		let theme = "light";
 
 		//Sidebar Vars
@@ -17,6 +17,8 @@
 		function toggleSidebar() {
 			sidebarOpen = !sidebarOpen;
 		}
+
+		// Allow panel to be controlled with key presses. TODO - setup in options
 		window.addEventListener("keydown", (event) => {
 			if (event.shiftKey && event.code === "KeyQ") {
 				toggleSidebar();
