@@ -16,7 +16,7 @@
 		top: calc(15% - 40px);
 		height: 35px;
 		right: 0;
-		position: absolute;
+		position: fixed;
 		border-bottom-left-radius: 5px;
 		border-top-left-radius: 5px;
 	}

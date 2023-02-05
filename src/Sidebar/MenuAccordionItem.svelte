@@ -20,7 +20,7 @@
 	.tw-collapse-title{
 		border-top: hsl(var(--b2)) solid 2px;
 		border-bottom: hsl(var(--b2)) solid 2px;
-		font-size: large;
+		font-size: 1rem;
 		font-weight: bold;
 		color: hsl(var(--bc));
 	}

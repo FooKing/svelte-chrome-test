@@ -1,24 +1,26 @@
 <!--Start Script-->
 <script>
 		import TailwindStyle from "./TailwindStyle.svelte"; // This needs to stay in here to enable styles even though it is not used it has base's in here likely needs changing to stop css leaks.
-    import MenuNavbar from "./Menu/MenuNavbar.svelte";
-    import MenuAccordionItem from "./Menu/MenuAccordionItem.svelte";
-    import JsonMenuComp from "./Menu/2DJsonTools/JsonMenuComp.svelte";
-		import MenuToggleButton from "./Menu/MenuToggleButton.svelte";
+    import MenuNavbar from "./Sidebar/MenuNavbar.svelte";
+    import MenuAccordionItem from "./Sidebar/MenuAccordionItem.svelte";
+    import JsonMenuComp from "./Sidebar/JsonTools/JsonMenuComp.svelte";
+		import MenuToggleButton from "./Sidebar/MenuToggleButton.svelte";
+		import ConsoleCommandsComp from "./Sidebar/ConsoleCommands/ConsoleCommandsComp.svelte";
+		import ClipboardUtility from "./UtilClasses/ClipboardUtility";
+		import UserFeebackSection from "./Sidebar/UserFeedbackSection.svelte";
 
-		// Set theme for DaisyUI here, this can be changed at runtime, TODO - Changeable from options.
+		// Set theme for DaisyUI here, this can be changed at runtime, TODO - Select and set from options.
 		let theme = "light";
 
 		//Sidebar Vars
 		let sidebarOpen = false;
-
 
 		//Functions
 		function toggleSidebar() {
 			sidebarOpen = !sidebarOpen;
 		}
 
-		// Allow panel to be controlled with key presses. TODO - setup in options
+		// Allow panel to be controlled with key presses. TODO - setup in options to allow different key binds
 		window.addEventListener("keydown", (event) => {
 			if (event.shiftKey && event.code === "KeyQ") {
 				toggleSidebar();
@@ -35,11 +37,15 @@
 <MenuToggleButton handleNavbarSidebarClose={toggleSidebar}/>
 
 <!--Sidebar contents-->
-<div class="tw-content-sidebar {sidebarOpen ? 'open' : ''}" >
-		<MenuNavbar handleNavbarSidebarClose={toggleSidebar} />
+<div class="sidebarPanel {sidebarOpen ? 'open' : ''}" >
+	<MenuNavbar handleNavbarSidebarClose={toggleSidebar} />
+	<div class="mainContentContainer">
+		<MenuAccordionItem menuTitle="Json Tools" component={JsonMenuComp}/>
+		<MenuAccordionItem menuTitle="Console Commands" component={ConsoleCommandsComp}/>
 		<MenuAccordionItem menuTitle="Bolt"/>
-		<MenuAccordionItem menuTitle="2D Json" component={JsonMenuComp}/>
 		<MenuAccordionItem menuTitle="Colours"/>
+	</div>
+	<UserFeebackSection class="userFeedbackSection" feedbackMsg=""/>
 </div>
 
 </html>
@@ -47,23 +53,32 @@
 
 <!--Start Styles-->
 <style>
-	.tw-content-sidebar {
+
+	.sidebarPanel {
+		display: flex;
+		flex-direction: column;
 		background-color: hsl(var(--b1));
 		border-radius: 5px;
-		height: 70%;
-		max-height: 700px;
+		max-height: 60vh;
 		width: 400px;
 		position: fixed;
 		top: 15%;
 		right: -400px;
 		z-index: 2147483647;
-		overflow: auto;
 		transition: right 0.3s ease-out;
-		overscroll-behavior: contain;
-		overflow-scrolling: unset;
+		/*overscroll-behavior: contain;*/
+		/*overflow-scrolling: unset;*/
 	}
-	.tw-content-sidebar.open {
+
+	.mainContentContainer{
+		max-height: 50vh;
+		overflow: auto;
+	}
+
+	.sidebarPanel.open {
 		right: 0;
 	}
+
+
 
 </style>
