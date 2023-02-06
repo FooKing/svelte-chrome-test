@@ -1,8 +1,6 @@
 <!--Start Script-->
 <script>
 	import ClipboardUtility from "../../UtilClasses/ClipboardUtility";
-	import {feedbackMsg} from "../UserFeedbackSection.svelte";
-
 
 	export let titleName;
 		let clipboardText ="";
@@ -10,7 +8,6 @@
 	export function handleOnClick(){
 		ClipboardUtility.readFromClipboard().then(clipboardText => {
 			console.log(clipboardText);
-			feedbackMsg.set(clipboardText);
 		});
 	}
 
